@@ -1,0 +1,10 @@
+import pandas as pd
+from sklearn import linear_model as lm
+url="https://raw.githubusercontent.com/AdiPersonalWorks/Random/master/student_scores%20-%20student_scores.csv"
+df2=pd.read_csv(url) 
+new_df2=df2.drop('Scores',axis='columns')
+predictor=lm.LinearRegression()
+predictor.fit(new_df2,df2.Scores)
+pm=predictor.predict([[9.25]])
+print("By studying 9.25 hrs a student might score=",pm)
+
